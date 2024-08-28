@@ -1,11 +1,12 @@
 
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import './../styles/App.css';
 
-const App = () => {
+
+function App() {
   return (
     <Router>
       <div>
@@ -20,17 +21,13 @@ const App = () => {
           </ul>
         </nav>
 
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
